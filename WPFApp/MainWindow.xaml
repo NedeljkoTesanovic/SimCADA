@@ -1,0 +1,114 @@
+﻿<Window x:Class="WPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="565.317" Width="1014.139" ResizeMode="NoResize">
+    <Grid Margin="0,0,-8,0">
+        <Grid Margin="0,0,138,0">
+            <TabControl Name="TabControl" Margin="0,0,10,0" Grid.ColumnSpan="2">
+                <TabItem Header="Analogue">
+                    <Grid>
+                        <DataGrid Name="dtgd_AI" SelectedItem="{Binding SignalAI}" Margin="6,44,447,241" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Critical}" Value="2">
+                                            <Setter Property="Background" Value="PaleVioletRed"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Critical}" Value="1">
+                                            <Setter Property="Background" Value="Yellow"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Critical}" Value="0">
+                                            <Setter Property="Background" Value="LimeGreen"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.RowStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Signal" Binding="{Binding Tag}"/>
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                                <DataGridTextColumn Header="Pin" Binding="{Binding Address}"/>
+                                <DataGridTextColumn Header="Scan Time" Binding="{Binding ScanTime}"/>
+                                <DataGridTextColumn Header="Signal Value" Binding="{Binding Val}"/>
+                                <DataGridTextColumn Header="Units" Binding="{Binding Unit}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid Name="dtgd_AO" SelectedItem="{Binding SignalAO}" Margin="453,44,10,241" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Signal" Binding="{Binding Tag}" Width="*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Pin" Binding="{Binding Address}" Width="*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Initial Value" Binding="{Binding InitVal}" Width="*" IsReadOnly="True"/>
+                                <DataGridTextColumn Header="Signal Value" Binding="{Binding Val}" Width="*" IsReadOnly="False" />
+                                <DataGridTextColumn Header="Units" Binding="{Binding Unit}" Width="*" IsReadOnly="True"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Content="Analogue Inputs&#xD;&#xA;" HorizontalAlignment="Left" Margin="6,13,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Analogue Outputs&#xD;&#xA;" HorizontalAlignment="Left" Margin="453,13,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Digital">
+                    <Grid>
+                        <DataGrid Name="dtgd_DI" SelectedItem="{Binding SignalDI}" Margin="6,44,447,241" IsReadOnly="True" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Signal" Binding="{Binding Tag}"/>
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                                <DataGridTextColumn Header="Pin" Binding="{Binding Address}"/>
+                                <DataGridTextColumn Header="Scan Time" Binding="{Binding ScanTime}"/>
+                                <DataGridTextColumn Header="Initial Value" Binding="{Binding InitVal}"/>
+                                <DataGridTextColumn Header="Signal Value" Binding="{Binding Val}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid Name="dtgd_DO" SelectedItem="{Binding SignalDO}" Margin="453,44,10,241" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Signal" Binding="{Binding Tag}" Width="*"/>
+                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
+                                <DataGridTextColumn Header="Pin" Binding="{Binding Address}" Width="*"/>
+                                <DataGridTextColumn Header="InitialValue" Binding="{Binding InitVal}" Width="*"/>
+                                <DataGridTextColumn Header="Signal Value" Binding="{Binding Val}" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Content="Digital Inputs" HorizontalAlignment="Left" Margin="6,13,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Digital Outputs" HorizontalAlignment="Left" Margin="453,13,0,0" VerticalAlignment="Top"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <Label Content="Alarms" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top"/>
+            <DataGrid Name="dtgd_Alarms" SelectedItem ="{Binding Alarm}" Margin="10,319,460,10" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Threshold" Binding="{Binding Threshold}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Rising Activation" Binding="{Binding ActiveHigh}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Message" Binding="{Binding Msg}" Width="*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Name="dtgd_Links" SelectedItem="{Binding Link}"  Margin="421,319,346,10" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Signal" Binding="{Binding SignalTag}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Alarm" Binding="{Binding AlarmName}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Name="dtgd_Logs" IsReadOnly="true" AutoGenerateColumns="False" Margin="535,319,10,10" ItemsSource="{Binding Logs}" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding}" Width="*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="Console" HorizontalAlignment="Left" Margin="536,293,0,0" VerticalAlignment="Top"/>
+            <Label Content="Links" HorizontalAlignment="Left" Margin="421,293,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Button Name="btn_Link" Margin="882,290,31,207" Content="Link Alarm" Click="Btn_Link_Click"></Button>
+        <Button x:Name="btn_Unlink_Copy" Margin="883,332,30,165" Content="Unlink Alarm" Click="Btn_Unlink_Click"/>
+        <Button Background="IndianRed" Name="btn_Exit" Content="AZ-5" Margin="881,489,32,10" Click="Btn_Exit_Click"></Button>
+        <Button x:Name="btn_New_Output" Content="New Output" Margin="881,90,32,409" Click="Btn_New_Output_Click"/>
+        <Button x:Name="btn_Delete_Output" Content="Delete Output" Margin="881,130,32,369" Click="Btn_Delete_Output_Click"/>
+        <Button x:Name="btn_New_Alarm" Content="New Alarm" Margin="882,210,32,289" Click="Btn_New_Alarm_Click"/>
+        <Button x:Name="btn_Delete_Alarm" Content="Delete Alarm" Margin="882,250,32,249" Click="Btn_Delete_Alarm_Click"/>
+        <Button x:Name="btn_Delete_Input" Content="Delete Input" Click="Btn_Delete_Input_Click" Margin="881,50,32,449"/>
+        <Button x:Name="btn_New_Input" Content="New Input" Click="Btn_New_Input_Click" Margin="881,10,32,489"/>
+        <Button x:Name="btn_Clear_Console" Margin="883,415,30,82" Content="Clear Console" Click="Btn_Clear_Console_click"/>
+        <Button x:Name="btn_Edit_Output" Content="Edit Output" Margin="881,170,32,329" Click="Btn_Edit_Output_click"/>
+    </Grid>
+</Window>

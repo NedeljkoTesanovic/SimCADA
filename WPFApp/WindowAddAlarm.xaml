@@ -1,0 +1,20 @@
+﻿<Window x:Class="WPFApp.WindowAddAlarm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="WindowAddAlarm" Height="318.171" Width="284.582">
+    <Grid>
+        <TextBox Name="txbx_Name" HorizontalAlignment="Left" Height="35" Margin="10,36,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Width="257"/>
+        <TextBox Name="txbx_Msg" HorizontalAlignment="Left" Height="38" Margin="10,99,0,0" TextWrapping="Wrap" Text="{Binding Path=Msg}" VerticalAlignment="Top" Width="257"/>
+        <TextBox Name="txbx_Threshold" HorizontalAlignment="Left" Height="29" Margin="10,163,0,0" TextWrapping="Wrap" Text="{Binding Path=Threshold}" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btn_Confirm" Content="Confirm" HorizontalAlignment="Left" Margin="164,230,0,19" Width="84" Click="Btn_Confirm_Click"/>
+        <CheckBox Name="chbx_ActiveHigh" Content="Activate over threshold (default: under)" HorizontalAlignment="Left" Margin="10,197,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=ActiveHigh}"/>
+        <Button x:Name="btn_Reset" Content="Reset" HorizontalAlignment="Left" Margin="46,230,0,19" Width="84" Click="Btn_Reset_Click"/>
+        <Label Content="Alarm Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Message" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label Content="Activation Threshold" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

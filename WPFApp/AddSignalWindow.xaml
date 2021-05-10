@@ -1,0 +1,26 @@
+﻿<Window x:Class="WPFApp.AddSignalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="AddSignalWindow" Height="402.423" Width="203.304">
+    <Grid Margin="0,0,2,3">
+        <Grid Background="White" HorizontalAlignment="Left" Height="52" Margin="13,18,0,0" VerticalAlignment="Top" Width="90">
+            <RadioButton Name ="rbtn_analogue" Content="Analogue" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="rbtn_analogue_Checked"/>
+            <RadioButton Name ="rbtn_digital" Content="Digital" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Checked="rbtn_digital_Checked"/>
+        </Grid>
+        <Grid Background="White" HorizontalAlignment="Left" Height="52" Margin="103,18,0,0" VerticalAlignment="Top" Width="79">
+            <RadioButton Name ="rbtn_input" Content="Input" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="rbtn_input_Checked"/>
+            <RadioButton Name ="rbtn_output" Content="Output" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Checked="rbtn_output_Checked"/>
+        </Grid>
+        <Button Name="btn_confirm" Content="Confirm" HorizontalAlignment="Left" Margin="44,301,0,0" VerticalAlignment="Top" Width="96" Click="btn_confirm_Click" Height="34"/>
+        <TextBox Name="txb_tag"  HorizontalAlignment="Left" Height="23" Margin="31,102,0,0" TextWrapping="Wrap" Text="Tag (id)" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txb_address" HorizontalAlignment="Left" Height="23" Margin="31,130,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txb_description" HorizontalAlignment="Left" Height="23" Margin="31,158,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txb_scanTime" HorizontalAlignment="Left" Height="23" Margin="31,186,0,0" TextWrapping="Wrap" Text="Scan Time" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txb_initialValue" HorizontalAlignment="Left" Height="23" Margin="31,214,0,0" TextWrapping="Wrap" Text="Initial Value" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txb_units" HorizontalAlignment="Left" Height="23" Margin="31,242,0,0" TextWrapping="Wrap" Text="Units" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>
